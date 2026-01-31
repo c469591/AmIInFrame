@@ -9,6 +9,7 @@ import logHandler
 import os
 import gettext
 import languageHandler
+import textInfos
 from controlTypes import Role
 
 # 初始化翻譯
@@ -71,29 +72,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
     def terminate(self):
         logHandler.log.info("Am I In Frame addon terminated")
 
-    # 檢查是否在頁框中
-    def internal_find_frame(
-        self,
-        obj  # 起始物件，類型：NVDAObject
-    ):
-        # 向上遍歷父物件鏈，尋找頁框
-        # 返回：(是否在頁框中, 頁框名稱, 頁框層級數)
-        frame_count = 0
-        frame_names = []
-
-        current = obj
-        while current:
-            try:
-                if current.role in FRAME_ROLES:
-                    frame_count += 1
-                    if current.name:
-                        frame_names.append(current.name)
-                current = current.parent
-            except Exception:
-                break
-
-        return frame_count > 0, frame_names, frame_count
-
     def script_checkIfInFrame(self, gesture):
         # 檢查當前焦點是否在頁框中
         try:
@@ -104,9 +82,34 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
                 ui.message(_("Cannot get focus object"))
                 return
 
-            in_frame, frame_names, frame_count = self.internal_find_frame(obj)
+            frame_names = []
+            frame_count = 0
 
-            if in_frame:
+            treeInterceptor = obj.treeInterceptor
+
+            if treeInterceptor and hasattr(treeInterceptor, 'makeTextInfo'):
+                try:
+                    # 獲取當前游標位置
+                    info = treeInterceptor.makeTextInfo(textInfos.POSITION_CARET)
+                    caretObj = info.NVDAObjectAtStart
+
+                    if caretObj:
+                        # 遍歷祖先鏈尋找頁框
+                        current = caretObj.parent
+                        while current:
+                            try:
+                                if current.role in FRAME_ROLES:
+                                    frame_count += 1
+                                    if current.name:
+                                        frame_names.append(current.name)
+                                current = current.parent
+                            except Exception:
+                                break
+                except Exception:
+                    pass
+
+            # 朗讀結果
+            if frame_count > 0:
                 if frame_count == 1:
                     if frame_names:
                         # Translators: 在單個頁框中，有名稱

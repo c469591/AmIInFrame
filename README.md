@@ -1,38 +1,45 @@
-# 我在頁框裡嗎 NVDA 插件 / Am I In Frame NVDA Add-on
+### 我在頁框裡嗎 NVDA 插件
 
-檢查當前焦點是否在頁框（iframe）中，以享受更好的網頁瀏覽體驗。
+這是一個功能超簡單的NVDA附加元件，功能只有一個:
+檢測當前游標停留的位置是否在頁框（iframe）中。
+會開發這個插件，只是為了更方便的進行網站無障礙檢測，因為現在的NVDA只有跳轉到頁框和離開頁框的功能，
+當你使用網頁搜尋功能跳到某個位置的時候，沒有一個簡單的功能可以得知自己是否在頁框裡，這樣會很難界定當前看到的內容，是網站本身的，還是從其他網站內嵌進來的。
 
-Check if current focus is inside a frame (iframe) for a better web browsing experience.
+#### (小補充) 到底什麼是頁框
 
-## 下載 / Download
+頁框就是在自己網站的某個網頁裡，動態嵌入其他網站的內容，
+例如嵌入youtube、facebook貼文，這是很多台灣的政府網站慣用的用法，他們往往喜歡把一些重要消息公布在社交平台上，然後自己的政府網站懶得再重寫一遍內容，就直接把facebook的貼文插入到自己的網頁上。
+所以很多時候使用nvda(螢幕閱讀軟體)的用戶在瀏覽時，會看到一些亂七八糟的圖片、連結、點讚數，這很多時候都是因為頁框中嵌入了其他網站，而那些網站的設計沒有考慮無障礙使用體驗導致的結果。
 
-* [點擊這裡下載最新版本 / Click here to download](https://github.com/c469591/AmIInFrame/raw/main/am_i_in_frame%20V1.0.nvda-addon)
+### 下載
 
-## 相容性 / Compatibility
+* [點擊這裡下載最新版本](https://github.com/c469591/AmIInFrame/raw/main/am_i_in_frame%20V0.1.nvda-addon)
+
+### 相容性
 
 NVDA 2024.1+
 
-## 快捷鍵 / Keyboard Shortcuts
+### 快捷鍵
 
-* NVDA+Shift+M：檢查當前焦點是否在頁框中 / Check if current focus is inside a frame
+* NVDA+Shift+M：檢查當前焦點是否在頁框中
 
-## 功能特色 / Features
+### 功能特色
 
-* 一鍵檢查是否在頁框中 / One-key check for frame status
-* 支援巢狀頁框偵測 / Nested frame detection support
-* 顯示頁框名稱 / Display frame names
-* 多語言支援 / Multi-language support (zh_TW, zh_CN, en)
+* 一鍵檢查是否在頁框中
+* 支援巢狀頁框偵測
+* 朗讀頁框名稱
+* 多語言支援 (繁體中文、簡體中文、英文)
 
-## 更新日誌 / Changelog
+### 更新日誌
 
-### V1.0
+#### V0.1
 
-* 首次發布 / Initial release
-* 支援檢查是否在頁框中 / Support for checking if inside a frame
-* 支援偵測多層巢狀頁框 / Support for detecting multiple nested frames
-* 支援顯示頁框名稱 / Support for displaying frame names
-* 多語言支援：繁體中文、簡體中文、英文 / Multi-language support
+* 首次發布
+* 支援檢查是否在頁框中
+* 支援偵測多層巢狀頁框
+* 支援顯示頁框名稱
+* 多語言支援：繁體中文、簡體中文、英文
 
-## 授權 / License
+### 授權
 
 GPL v2
