@@ -1,0 +1,53 @@
+# Am I In Frame NVDA Add-on
+# Simplified Chinese translation
+# Copyright (C) 2024
+# This file is distributed under the same license as the Am I In Frame package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Am I In Frame\n"
+"POT-Creation-Date: 2024-01-30\n"
+"PO-Revision-Date: 2026-01-31 07:59+0800\n"
+"Last-Translator: \n"
+"Language-Team: Chinese (Simplified)\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.6\n"
+
+# 输入手势类别名称
+msgid "Am I In Frame"
+msgstr "我在页框里吗"
+
+# 无法获取焦点对象时的提示
+msgid "Cannot get focus object"
+msgstr "无法获取焦点对象"
+
+# 在单个页框中，有名称
+msgid "In frame: {name}"
+msgstr "在页框中：{name}"
+
+# 在单个页框中，无名称
+msgid "In frame"
+msgstr "在页框中"
+
+# 在多层嵌套页框中，有名称
+msgid "In {count} nested frames: {names}"
+msgstr "在 {count} 层嵌套页框中：{names}"
+
+# 在多层嵌套页框中，无名称
+msgid "In {count} nested frames"
+msgstr "在 {count} 层嵌套页框中"
+
+# 不在页框中
+msgid "Not in frame"
+msgstr "不在页框中"
+
+# 检查发生错误时的提示
+msgid "Error checking frame status"
+msgstr "检查页框状态时发生错误"
+
+# 检查是否在页框中的脚本说明
+msgid "Check if current focus is inside a frame"
+msgstr "检查当前焦点是否在页框中"
